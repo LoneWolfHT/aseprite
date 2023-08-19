@@ -55,6 +55,10 @@ jobs:
       shell: bash
       run: |
         cd build && ninja
+    - uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: .
     - name: Running C++ Tests
       shell: bash
       run: |
