@@ -56,9 +56,12 @@ jobs:
       run: |
         cd build && ninja
     - name: Zipping
+      if: runner.os == 'Windows'
       shell: bash
       run: |
-        zip ./build/
+        7z a -r aseprite.zip ./build/
+        dir
+        cd build
         dir
     - uses: actions/upload-artifact@v3
       with:
