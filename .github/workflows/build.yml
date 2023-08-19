@@ -55,10 +55,15 @@ jobs:
       shell: bash
       run: |
         cd build && ninja
+    - name: Zipping
+      shell: bash
+      run: |
+        zip ./build/
+        dir
     - uses: actions/upload-artifact@v3
       with:
         name: windows-build
-        path: .
+        path: build/
     - name: Running C++ Tests
       shell: bash
       run: |
